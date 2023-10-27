@@ -1,0 +1,26 @@
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-12 col-sm-6 col-md-4" *ngFor="let noticia of cabeceras.results | slice:0:3">
+      <div class="card m-2">
+        <div *ngIf="noticia.image_url">
+          <div *ngIf="isVideo(noticia.image_url)">
+            <video class="card-img-top" controls>
+              <source [src]="noticia.image_url" type="video/mp4">
+              Tu navegador no soporta la reproducción de videos.
+            </video>
+          </div>
+          <div *ngIf="!isVideo(noticia.image_url)">
+            <img class="card-img-top" [src]="noticia.image_url" alt="Card image cap">
+          </div>
+        </div>
+        <div class="card-body">
+          <h5 class="card-title" [innerHTML]="noticia.title"></h5>
+          <p class="card-text">{{ noticia.description ? noticia.description : sanitizeContent(noticia.content) | slice:0:50 }}{{' ...'}}</p>
+          <a (click)="navigateToNoticia(noticia)" class="btn btn-primary">Ir a la noticia</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+

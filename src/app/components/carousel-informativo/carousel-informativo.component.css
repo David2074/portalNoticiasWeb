@@ -1,0 +1,39 @@
+.con-animate {
+    position: fixed;
+    width: 100%;
+    background: rgb(255, 255, 255);
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.18);
+  height: 28px;
+  overflow:hidden;
+  z-index: 100;
+  }
+  .con-animate > div {
+    display: flex;
+    width: 100%;
+    background: rgb(255, 255, 255);
+  }
+  .con-animate > div p {
+    width: 100%;
+    margin-right: 3rem;
+    font-weight: bold;
+  }
+  .con-animate > .animate1 {
+    position: absolute;
+    left: 0px;
+    animation: animate1 linear 30s infinite;
+    transform: translate(0);
+  }
+  .con-animate > .animate2 {
+    position: absolute;
+    left: 30rem;
+    animation: animate2 linear 30s infinite;
+    transform: translate(0);
+  }
+  @keyframes animate1 {
+  from {transform:translate(0%)}
+  to {transform:translate(-100%)}
+  }
+  @keyframes animate2 {
+  from {transform:translate(100%)}
+  to {transform:translate(0%)}
+  }
